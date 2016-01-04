@@ -1,0 +1,8 @@
+name: AttributeJades
+version: 1.0
+main: net.bubuxi.mc.attributejades.AttributeJades
+commands:
+  attributejades:
+    description:
+    alias:
+    - aj
