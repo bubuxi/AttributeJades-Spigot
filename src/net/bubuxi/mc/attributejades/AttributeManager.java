@@ -3,32 +3,25 @@ package net.bubuxi.mc.attributejades;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Created by zekunshen on 1/4/16.
  */
 public class AttributeManager{
     AttributeJades plugin;
-
+    List<Player> jade0 = new CopyOnWriteArrayList<Player>();
+    List<Player> jade1 = new CopyOnWriteArrayList<Player>();
+    List<Player> jade2 = new CopyOnWriteArrayList<Player>();
+    List<Player> jade3 = new CopyOnWriteArrayList<Player>();
+    List<Player> jade4 = new CopyOnWriteArrayList<Player>();
     private Timer timer = new Timer();
-
-    List<Player> jade0;
-    List<Player> jade1;
-    List<Player> jade2;
-    List<Player> jade3;
-    List<Player> jade4;
 
     public AttributeManager(AttributeJades aj) {
         plugin = aj;
-        jade0 = new ArrayList<Player>();
-        jade1 = new ArrayList<Player>();
-        jade2 = new ArrayList<Player>();
-        jade3 = new ArrayList<Player>();
-        jade4 = new ArrayList<Player>();
         timer.schedule(new UpdateTask(this), 1000L, 1000L);
     }
 
@@ -37,46 +30,26 @@ public class AttributeManager{
     }
 
     public void update() {
-        synchronized (jade0) {
-            jade0.clear();
-        }
-        synchronized (jade1) {
-            jade1.clear();
-        }
-        synchronized (jade2) {
-            jade2.clear();
-        }
-        synchronized (jade3) {
-            jade3.clear();
-        }
-        synchronized (jade4) {
-            jade4.clear();
-        }
+        jade0.clear();
+        jade1.clear();
+        jade2.clear();
+        jade3.clear();
+        jade4.clear();
         for(Player p : Bukkit.getOnlinePlayers()) {
             if(p.getInventory().contains(Jades.jade0)) {
-                synchronized (jade0) {
-                    jade0.add(p);
-                }
+                jade0.add(p);
             }
             if(p.getInventory().contains(Jades.jade1)) {
-                synchronized (jade1) {
-                    jade1.add(p);
-                }
+                jade1.add(p);
             }
             if(p.getInventory().contains(Jades.jade2)) {
-                synchronized (jade2) {
-                    jade2.add(p);
-                }
+                jade2.add(p);
             }
             if(p.getInventory().contains(Jades.jade3)) {
-                synchronized (jade3) {
-                    jade3.add(p);
-                }
+                jade3.add(p);
             }
             if(p.getInventory().contains(Jades.jade4)) {
-                synchronized (jade4) {
-                    jade4.add(p);
-                }
+                jade4.add(p);
             }
         }
     }

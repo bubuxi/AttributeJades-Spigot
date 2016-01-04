@@ -23,30 +23,20 @@ public class ParticleEffectManager {
     }
 
     public void showEffect() {
-        synchronized (aManager.jade0) {
-            for (Player p : aManager.jade0) {
-                playEffect(p, Jades.fromId(0));
+        for (Player p : aManager.jade0) {
+            playEffect(p, Jades.fromId(0));
             }
+        for (Player p : aManager.jade1) {
+            playEffect(p, Jades.fromId(1));
         }
-        synchronized (aManager.jade1) {
-            for (Player p : aManager.jade1) {
-                playEffect(p, Jades.fromId(1));
-            }
+        for (Player p : aManager.jade2) {
+            playEffect(p, Jades.fromId(2));
         }
-        synchronized (aManager.jade2) {
-            for (Player p : aManager.jade2) {
-                playEffect(p, Jades.fromId(2));
-            }
+        for (Player p : aManager.jade3) {
+            playEffect(p, Jades.fromId(3));
         }
-        synchronized (aManager.jade3) {
-            for (Player p : aManager.jade3) {
-                playEffect(p, Jades.fromId(3));
-            }
-        }
-        synchronized (aManager.jade4) {
-            for (Player p : aManager.jade4) {
-                playEffect(p, Jades.fromId(4));
-            }
+        for (Player p : aManager.jade4) {
+            playEffect(p, Jades.fromId(4));
         }
     }
 
